@@ -20,10 +20,9 @@ function PasswordReset() {
 
   useEffect(() => {
     console.log("useEffect");
-    return () => {
-      verifyResetToken();
-      getUserDetails();
-    };
+
+    verifyResetToken();
+    getUserDetails();
   }, []);
 
   async function getUserDetails() {
