@@ -28,16 +28,17 @@ function PasswordReset() {
       console.log(error);
     }
   }
-  console.log(params);
+
   const verifyResetToken = async () => {
     setTokenStatus("verifying");
     const resetToken = {
       resetToken: token,
     };
     try {
-      await axios.post(`${API_URL}/verifyResetToken`, resetToken);
-
+      let result = await axios.post(`${API_URL}/verifyResetToken`, resetToken);
+      console.log(result);
       setTokenStatus("verified");
+      return result;
     } catch (error) {
       if (error.response.data === "ResetToken Expired") {
         setTokenStatus("expired");
@@ -47,6 +48,7 @@ function PasswordReset() {
         toast.error("Invalid Reset Link");
       }
       console.log(error);
+      return false;
     }
   };
 
@@ -58,6 +60,7 @@ function PasswordReset() {
   }, []);
 
   const handleResetPassword = async (event) => {
+    console.log();
     setIsSuccess(true);
     event.preventDefault();
     try {
