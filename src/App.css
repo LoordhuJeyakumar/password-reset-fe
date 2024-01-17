@@ -1,0 +1,162 @@
+.background-radial-gradient,
+.background-radial-gradient-reset {
+  background-color: hsl(218, 41%, 15%);
+  background-image: radial-gradient(
+      650px circle at 0% 0%,
+      hsl(218, 41%, 35%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1250px circle at 100% 100%,
+      hsl(218, 41%, 45%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%
+    );
+}
+
+#radius-shape-1 {
+  height: 220px;
+  width: 220px;
+  top: -60px;
+  left: -130px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
+
+#radius-shape-2 {
+  border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+  bottom: -60px;
+  right: -110px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
+
+#radius-shape-4 {
+  height: 220px;
+  width: 220px;
+  top: 60px;
+  left: 830px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
+
+#radius-shape-6 {
+  border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+  bottom: 60px;
+  right: 780px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
+
+#radius-shape-3 {
+  border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+  bottom: 90px;
+  right: 150px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
+.infoContainer {
+  background-color: hsla(0, 0%, 0%, 0.5) !important;
+  backdrop-filter: saturate(200%) blur(35px);
+  
+}
+
+.bg-glass {
+  background-color: hsla(0, 0%, 100%, 0.8) !important;
+  backdrop-filter: saturate(200%) blur(25px);
+}
+
+.bg-glass-login {
+  background-color: hsla(0, 0%, 0%, 0.5) !important;
+  backdrop-filter: saturate(200%) blur(35px);
+}
+
+.bg-glass-reset {
+  background-color: hsla(0, 0%, 0%, 0.4) !important;
+  backdrop-filter: saturate(200%) blur(35px);
+}
+
+.bg-glass-login > *,
+.bg-glass-reset > * {
+  color: aliceblue !important;
+}
+
+#radius-shape-1 {
+  animation: 5s linear 0s infinite alternate rise,
+    24s linear 0s infinite psychedelic;
+}
+#radius-shape-2 {
+  animation: 4s linear 0s infinite alternate rise,
+    20s linear 0s infinite psychedelic;
+}
+#radius-shape-4 {
+  animation: 3s linear 0s infinite alternate rise,
+    16s linear 0s infinite psychedelic;
+}
+#radius-shape-6 {
+  animation: 2s linear 0s infinite alternate rise,
+    12s linear 0s infinite psychedelic;
+}
+
+@keyframes raiseAl {
+  from {
+    transform: translateX(5);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.background-radial-gradient-reset {
+  animation: 26s linear 0s infinite psychedelic;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(40vh);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes psychedelic {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 220px;
+  height: 220px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Verifying {
+  z-index: auto;
+}
