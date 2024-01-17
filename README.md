@@ -1,25 +1,19 @@
-# User Password Reset Flow
+# User Password Reset Flow FE
 
 This document outlines the password reset flow for the front end of the application.
 
 ## **URLs**
 
-## [Netlify Deployed URL 👈 ](https://password-reset-api-2je2.onrender.com)
+## [Netlify Deployed URL 👈 ](https://password-reset-flow-nodejs.netlify.app/)
 
 ```
-https://password-reset-api-2je2.onrender.com
+https://password-reset-flow-nodejs.netlify.app/
 ```
 
-## [Github repository URL 👈](https://github.com/LoordhuJeyakumar/password-reset-be.git)
+## [Github repository URL 👈](https://github.com/LoordhuJeyakumar/password-reset-fe.git)
 
 ```
-https://github.com/LoordhuJeyakumar/password-reset-be.git
-```
-
-## [Documentation URL 👈](https://documenter.getpostman.com/view/27536086/2s9YsQ9W7M)
-
-```
-https://documenter.getpostman.com/view/27536086/2s9YsQ9W7M
+https://github.com/LoordhuJeyakumar/password-reset-fe.git
 ```
 
 ## Steps:
@@ -74,10 +68,10 @@ https://documenter.getpostman.com/view/27536086/2s9YsQ9W7M
 
 ## Error Handling:
 
-Invalid email: Display an error message to the user.
-Token expired: Display an error message and prompt the user to request a new token.
-Invalid token: Display an error message and prompt the user to check the link or try again.
-Password reset failed: Display an error message and encourage the user to contact support.
+- **Invalid email:** Display an error message to the user.
+- **Token expired:** Display an error message and prompt the user to request a new token.
+- **Invalid token:** Display an error message and prompt the user to check the link or try again.
+- **Password reset failed:** Display an error message and encourage the user to contact support.
 
 ## Additional Considerations:
 
