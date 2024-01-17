@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import Signup from "./pages/signup";
+import Signup from "./pages/Signup";
 import "./App.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Login from "./pages/Login";
