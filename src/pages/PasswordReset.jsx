@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import BackgroundShape from "../components/BackgroundShape";
 import Verifying from "../components/Verifying";
 import Verified from "../components/Verified";
-import Expired from "../components/expired";
+import Expired from "../components/Expired";
 import Invalid from "../components/Invalid";
 import Success from "../components/Success";
 
