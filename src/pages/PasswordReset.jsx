@@ -27,6 +27,7 @@ function PasswordReset() {
   }, []);
 
   async function getUserDetails() {
+    console.log("getUserDetails");
     try {
       let singleUser = await axios.get(`${API_URL}/users/${id}`);
 
@@ -38,6 +39,7 @@ function PasswordReset() {
   }
 
   async function verifyResetToken() {
+    console.log("verifyresetToken");
     setTokenStatus("verifying");
     const resetToken = {
       resetToken: token,
