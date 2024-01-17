@@ -50,9 +50,9 @@ function Signup() {
     // Prevent form submission if there are any invalid fields
     if (!addUserRef.current.checkValidity()) {
       toast.error("Please fill out all required fields");
+      setIsUserAdded(false);
       event.preventDefault();
       event.stopPropagation();
-      setIsUserAdded(false);
     }
     // Add 'was-validated' className to the form to show validation feedback
     addUserRef.current.classList.add("was-validated");
