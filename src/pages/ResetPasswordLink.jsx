@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { GlobelData } from "../App";
+import { API_URL, GlobelData } from "../App";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -28,10 +28,7 @@ function ResetPasswordLink() {
     if (resetRef.current.checkValidity()) {
       try {
         // Send user details to the server using an HTTP POST request
-        const response = await axios.post(
-          "http://localhost:3333/passwordResetToken",
-          useremail
-        );
+        await axios.post(`${API_URL}/passwordResetToken`, useremail);
         event.preventDefault();
         // Reset form state to initial values
         setEmail("");
@@ -40,7 +37,6 @@ function ResetPasswordLink() {
         setIsSent(false);
         toast.success("Email Sent Successfuly");
       } catch (error) {
-        console.log(error);
         if (error.response.status === 409) {
           setEmail("");
           setIsSent(false);

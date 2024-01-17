@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { GlobelData } from "../App";
+import { API_URL, GlobelData } from "../App";
 import BackgroundShape from "../components/BackgroundShape";
 
 function Login() {
@@ -52,7 +52,7 @@ function Login() {
       try {
         // Send user details to the server using an HTTP POST request
         const response = await axios.post(
-          "http://localhost:3333/login",
+          `${API_URL}/login`,
           userCredentials
         );
 
@@ -69,7 +69,7 @@ function Login() {
 
         navigate("/dashboard");
       } catch (error) {
-        console.log(error);
+       
         if (error.response.status === 409) {
           toast.error(error.response.data.message);
           setPassword("");

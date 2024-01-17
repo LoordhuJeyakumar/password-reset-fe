@@ -10,9 +10,11 @@ import ResetPasswordLink from "./pages/ResetPasswordLink";
 import PasswordReset from "./pages/PasswordReset";
 import axios from "axios";
 
-const isLocalURL = true;
+const isLocalURL = false;
 
-const API_URL = isLocalURL ? `http://localhost:3333` : ``;
+const API_URL = isLocalURL
+  ? `http://localhost:3333`
+  : `https://password-reset-api-2je2.onrender.com`;
 const GlobelData = createContext(null);
 function App() {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
@@ -23,7 +25,7 @@ function App() {
   const [getData, setGetData] = useState(false);
   async function getUsersDetails() {
     try {
-      let allUsers = await axios.get("http://localhost:3333/users");
+      let allUsers = await axios.get(`${API_URL}/users`);
 
       setAllUsersDetails(allUsers.data.users);
     } catch (error) {
@@ -54,6 +56,7 @@ function App() {
             allUsersDetails,
             setGetData,
             getData,
+            API_URL,
           }}
         >
           <Router>
@@ -82,4 +85,4 @@ function App() {
   );
 }
 
-export { App as default, GlobelData };
+export { App as default, GlobelData, API_URL };

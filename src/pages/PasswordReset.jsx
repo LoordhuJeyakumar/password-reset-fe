@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { GlobelData } from "../App";
+import React, { useEffect, useState } from "react";
+import { API_URL } from "../App";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -11,7 +11,6 @@ import Invalid from "../components/Invalid";
 import Success from "../components/Success";
 
 function PasswordReset() {
-  const { email, setEmail, password, setPassword } = useContext(GlobelData);
   const [resetUser, SetResetUser] = useState(null);
   const [tokenStatus, setTokenStatus] = useState("verifying");
   const [newPassword, setNewPassword] = useState("");
@@ -21,7 +20,7 @@ function PasswordReset() {
 
   async function getUserDetails() {
     try {
-      let singleUser = await axios.get(`http://localhost:3333/users/${id}`);
+      let singleUser = await axios.get(`${API_URL}/users/${id}`);
 
       SetResetUser(singleUser.data.user);
       return singleUser;
@@ -36,14 +35,10 @@ function PasswordReset() {
       resetToken: token,
     };
     try {
-      let result = await axios.post(
-        "http://localhost:3333/verifyResetToken",
-        resetToken
-      );
-      console.log(result);
+      await axios.post(`${API_URL}/verifyResetToken`, resetToken);
+
       setTokenStatus("verified");
     } catch (error) {
-      console.log(error);
       if (error.response.data === "ResetToken Expired") {
         setTokenStatus("expired");
         toast.error("Link expired please generate new reset link");
@@ -71,10 +66,7 @@ function PasswordReset() {
           resetToken: token,
           newPassword,
         };
-        let response = await axios.post(
-          "http://localhost:3333/resetPassword",
-          changePasswordObj
-        );
+        await axios.post(`${API_URL}/resetPassword`, changePasswordObj);
         setTokenStatus("success");
         setIsSuccess(false);
         toast.success("Password changed successfully");

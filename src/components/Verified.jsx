@@ -6,8 +6,7 @@ function Verified({
   setNewPassword,
   handleResetPassword,
   resetUser,
-  isSuccess,
-  setIsSuccess,
+  isSuccess
 }) {
   const resetRef = useRef(null);
 

@@ -4,7 +4,6 @@ import BootstrapLogo from "../assets/bootstrap-logo-shadow.png";
 import NodeJSLogo from "../assets/nodejs logo.svg";
 import axiosLogo from "../assets/axios-logo.svg";
 import reactrouterLogo from "../assets/react-router-color-inverted.png";
-import expressLogo from "../assets/express-logo.png";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -19,6 +18,7 @@ function Signup() {
     setEmail,
     setPassword,
     setUserName,
+    API_URL,
   } = useContext(GlobelData);
   const [isUserAdded, setIsUserAdded] = useState(false);
   const addUserRef = useRef(null);
@@ -61,7 +61,7 @@ function Signup() {
       try {
         // Send user details to the server using an HTTP POST request
         const response = await axios.post(
-          "http://localhost:3333/users/createUser",
+          `${API_URL}/users/createUser`,
           newUser
         );
         event.preventDefault();
@@ -74,7 +74,6 @@ function Signup() {
         setIsUserAdded(false);
         toast.success("User successfully added");
         setGetData(true);
-     
       } catch (error) {
         if (error.response.status === 409) {
           toast.error(error.response.data.message);
