@@ -20,6 +20,7 @@ function ResetPasswordLink() {
       toast.error("Please fill out all required fields");
       event.preventDefault();
       event.stopPropagation();
+      setIsSent(false);
     }
     // Add 'was-validated' className to the form to show validation feedback
     resetRef.current.classList.add("was-validated");

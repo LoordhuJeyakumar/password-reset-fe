@@ -43,6 +43,7 @@ function Login() {
       toast.error("Please fill out all required fields");
       event.preventDefault();
       event.stopPropagation();
+      setIsUserAdded(false);
     }
     // Add 'was-validated' className to the form to show validation feedback
     loginRef.current.classList.add("was-validated");
@@ -51,10 +52,7 @@ function Login() {
     if (loginRef.current.checkValidity()) {
       try {
         // Send user details to the server using an HTTP POST request
-        const response = await axios.post(
-          `${API_URL}/login`,
-          userCredentials
-        );
+        const response = await axios.post(`${API_URL}/login`, userCredentials);
 
         setUserName(response.data.username);
         event.preventDefault();
@@ -69,7 +67,6 @@ function Login() {
 
         navigate("/dashboard");
       } catch (error) {
-       
         if (error.response.status === 409) {
           toast.error(error.response.data.message);
           setPassword("");

@@ -52,6 +52,7 @@ function Signup() {
       toast.error("Please fill out all required fields");
       event.preventDefault();
       event.stopPropagation();
+      setIsUserAdded(false);
     }
     // Add 'was-validated' className to the form to show validation feedback
     addUserRef.current.classList.add("was-validated");
