@@ -57,7 +57,7 @@ function PasswordReset() {
       verifyResetToken();
       getUserDetails();
     };
-  }, []);
+  }, [params]);
 
   const handleResetPassword = async (event) => {
     console.log();
