@@ -18,6 +18,14 @@ function PasswordReset() {
   const params = useParams();
   const { id, token } = params;
 
+  useEffect(() => {
+    console.log("useEffect");
+    return () => {
+      verifyResetToken();
+      getUserDetails();
+    };
+  }, []);
+
   async function getUserDetails() {
     try {
       let singleUser = await axios.get(`${API_URL}/users/${id}`);
@@ -29,16 +37,13 @@ function PasswordReset() {
     }
   }
 
-  const verifyResetToken = async () => {
+  async function verifyResetToken() {
     setTokenStatus("verifying");
     const resetToken = {
       resetToken: token,
     };
     try {
-      let result = await axios.post(
-        `https://password-reset-api-2je2.onrender.com/verifyResetToken`,
-        resetToken
-      );
+      let result = await axios.post(`${API_URL}/verifyResetToken`, resetToken);
       console.log(result);
       setTokenStatus("verified");
       return result;
@@ -53,14 +58,7 @@ function PasswordReset() {
       console.log(error);
       return false;
     }
-  };
-
-  useEffect(() => {
-    return () => {
-      verifyResetToken();
-      getUserDetails();
-    };
-  }, [params]);
+  }
 
   const handleResetPassword = async (event) => {
     console.log();
