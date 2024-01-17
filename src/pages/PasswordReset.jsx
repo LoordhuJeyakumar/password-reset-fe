@@ -28,7 +28,7 @@ function PasswordReset() {
       console.log(error);
     }
   }
-
+  console.log(params);
   const verifyResetToken = async () => {
     setTokenStatus("verifying");
     const resetToken = {
