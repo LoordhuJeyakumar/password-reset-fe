@@ -35,7 +35,10 @@ function PasswordReset() {
       resetToken: token,
     };
     try {
-      let result = await axios.post(`${API_URL}/verifyResetToken`, resetToken);
+      let result = await axios.post(
+        `https://password-reset-api-2je2.onrender.com/verifyResetToken`,
+        resetToken
+      );
       console.log(result);
       setTokenStatus("verified");
       return result;
