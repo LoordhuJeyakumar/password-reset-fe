@@ -3,7 +3,7 @@ import { GlobelData } from "../App";
 import BackgroundShape from "../components/BackgroundShape";
 
 function Dashboard() {
-  const { username } = useContext(GlobelData);
+  const { username, setIsUserLoggedIn } = useContext(GlobelData);
 
   return (
     <div className="background-radial-gradient overflow-hidden vh-100">
@@ -25,6 +25,16 @@ function Dashboard() {
 
                 <h1 className="text-center text-warning mb-4">Welcome</h1>
                 <h2 className="text-center  mb-4">{username}</h2>
+                <div className="d-flex justify-content-center p-2 m-2">
+                  <button
+                    className="btn btn-warning fw-bold"
+                    onClick={() => {
+                      setIsUserLoggedIn(false);
+                    }}
+                  >
+                    Logout
+                  </button>
+                </div>
               </div>
             </div>
           </div>
